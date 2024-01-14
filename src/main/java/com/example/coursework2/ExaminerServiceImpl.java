@@ -3,6 +3,7 @@ package com.example.coursework2;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 @Service
@@ -17,10 +18,10 @@ public class ExaminerServiceImpl implements ExaminerService{
     public Collection<Question> getQuestions(int amount) {
         if (amount > questionService.getAll().size())
             throw new NumberIsExceededException("The number of questions requested is greater than the number of available ones");
-        List<Question> list = new LinkedList<>();
+        HashSet<Question> set = new HashSet<>();
         for (int i = 1; i <= amount; i++) {
-            list.add(questionService.getRandomQuestion());
+            set.add(questionService.getRandomQuestion());
         }
-        return list;
+        return set;
     }
 }
