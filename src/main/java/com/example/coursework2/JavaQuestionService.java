@@ -8,7 +8,7 @@ import java.util.*;
 public class JavaQuestionService implements QuestionService {
 
     private Set<Question> questions = new HashSet<>();
-//    private Random random = new Random();
+    private Random random = new Random();
     public Question add(String question, String answer) {
         Question q = new Question(question, answer);
         questions.add(q);
@@ -27,6 +27,6 @@ public class JavaQuestionService implements QuestionService {
     }
     public Question getRandomQuestion() {
         List<Question> list = new ArrayList<>(this.getAll());
-        return list.get(new Random().nextInt(questions.size()));
+        return list.get(random.nextInt(questions.size()));
     }
 }
