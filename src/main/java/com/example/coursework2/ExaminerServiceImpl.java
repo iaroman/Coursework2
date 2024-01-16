@@ -19,7 +19,7 @@ public class ExaminerServiceImpl implements ExaminerService{
         if (amount > questionService.getAll().size())
             throw new NumberIsExceededException("The number of questions requested is greater than the number of available ones");
         HashSet<Question> set = new HashSet<>();
-        for (int i = 1; i <= amount; i++) {
+        while (set.size() < amount) {
             set.add(questionService.getRandomQuestion());
         }
         return set;
